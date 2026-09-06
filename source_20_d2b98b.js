@@ -1,18 +1,43 @@
-// Auto-converted from Legado/阅读 comic source.
-// Source: 紳士漫畫🔞🌐
-// NOTE: This is a best-effort compatibility conversion. Complex Legado JS rules may require manual fixes.
+/** @type {import('./_venera_.js')} */
+// Auto-converted Legado -> Venera v2.
+// Original source: 紳士漫畫🔞🌐
+// This version follows the current Venera ComicSource shape.
+// Complex Legado JS/template expressions are preserved in legadoRules and are not silently executed.
 
 class ConvertedSource_source_20_d2b98b extends ComicSource {
   name = "紳士漫畫🔞🌐";
   key = "source_20_d2b98b";
-  version = "0.1.0";
+  version = "0.2.0";
   minAppVersion = "1.0.0";
   url = "";
   baseUrl = "https://www.wnacg.com";
-  defaultHeaders = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36", "Referer": "https://www.wnacg.com"};
-  legadoRules = {"ruleSearchUrl":"https://www.wnacg.com/search/?q=searchKey&f=_all&s=create_time_DESC&syn=yes&p=searchPage","ruleSearchList":"li.gallary_item","ruleSearchName":"a@title@js:result.replace(/<\\/?em>/g,'')","ruleSearchAuthor":"","ruleSearchNoteUrl":"a@href","ruleSearchCoverUrl":"img@src@js:result.replace(/^\\/+/,'http://')","ruleSearchKind":"","ruleSearchLastChapter":"","ruleBookName":"h2@text","ruleBookAuthor":"","ruleBookKind":"label@text","ruleBookLastChapter":"","ruleIntroduce":".addtags@text","ruleCoverUrl":".uwthumb img@src@js:result.replace(/^\\/+/,'http://')","ruleChapterList":"a[href*='photos-slide-aid-'] | a[href*='photos-list-aid-']","ruleChapterName":"@js:'正文'","ruleChapterUrl":"","ruleContentUrl":"href@js:'https://www.wnacg.com'+result.replace('slide','gallery').replace('list','gallery')","ruleBookContent":"@js:result.match(/(?:https?:)?\\/\\/[\\w.-]+\\/(?:data|t)\\/[^\"'\\s]+\\.(?:jpg|jpeg|png|gif|webp)/g).map(function(u){return u.indexOf('http')===0?u:'http:'+u})"};
+  headers = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Referer": "https://www.wnacg.com"
+  };
 
-  // ---- Auto-generated Legado compatibility helpers ----
+  legadoRules = {
+  "ruleSearchUrl": "https://www.wnacg.com/search/?q=searchKey&f=_all&s=create_time_DESC&syn=yes&p=searchPage",
+  "ruleSearchList": "li.gallary_item",
+  "ruleSearchName": "a@title@js:result.replace(/<\\/?em>/g,'')",
+  "ruleSearchAuthor": "",
+  "ruleSearchNoteUrl": "a@href",
+  "ruleSearchCoverUrl": "img@src@js:result.replace(/^\\/+/,'http://')",
+  "ruleSearchKind": "",
+  "ruleSearchLastChapter": "",
+  "ruleBookName": "h2@text",
+  "ruleBookAuthor": "",
+  "ruleBookKind": "label@text",
+  "ruleBookLastChapter": "",
+  "ruleIntroduce": ".addtags@text",
+  "ruleCoverUrl": ".uwthumb img@src@js:result.replace(/^\\/+/,'http://')",
+  "ruleChapterList": "a[href*='photos-slide-aid-'] | a[href*='photos-list-aid-']",
+  "ruleChapterName": "@js:'正文'",
+  "ruleChapterUrl": "",
+  "ruleContentUrl": "href@js:'https://www.wnacg.com'+result.replace('slide','gallery').replace('list','gallery')",
+  "ruleBookContent": "@js:result.match(/(?:https?:)?\\/\\/[\\w.-]+\\/(?:data|t)\\/[^\"'\\s]+\\.(?:jpg|jpeg|png|gif|webp)/g).map(function(u){return u.indexOf('http')===0?u:'http:'+u})"
+};
+
   _trim(v) {
     if (v === null || v === undefined) return "";
     return String(v).trim();
@@ -22,86 +47,99 @@ class ConvertedSource_source_20_d2b98b extends ComicSource {
     url = this._trim(url);
     if (!url) return "";
     if (/^https?:\/\//i.test(url)) return url;
-    if (url.startsWith("//")) {
-      let p = /^https:/i.test(base || this.baseUrl) ? "https:" : "http:";
-      return p + url;
-    }
+    if (url.startsWith("//")) return (/^https:/i.test(base || "") ? "https:" : "http:") + url;
     try {
-      let b = base || this.baseUrl;
-      let m = b.match(/^(https?:\/\/[^\/]+)/i);
-      let origin = m ? m[1] : b;
-      if (url.startsWith("/")) return origin + url;
-      let dir = b.replace(/[?#].*$/, "").replace(/\/[^\/]*$/, "/");
-      return dir + url;
+      return new URL(url, base || this.baseUrl).toString();
     } catch (_) {
       return url;
     }
   }
 
-  _stripDirectives(rule) {
-    rule = this._trim(rule);
-    // Remove Legado JS suffixes. They are preserved in legadoRules for manual fixes.
-    rule = rule.replace(/<js>[\s\S]*$/i, "");
-    rule = rule.replace(/@js:[\s\S]*$/i, "");
-    rule = rule.replace(/\n@js:[\s\S]*$/i, "");
-    return rule.trim();
+  _strip(rule) {
+    return this._trim(rule)
+      .replace(/<js>[\s\S]*$/i, "")
+      .replace(/@js:[\s\S]*$/i, "")
+      .trim();
   }
 
-  _requestSpec(url, keyword, page) {
-    let u = this._trim(url)
-      .replace(/searchKey/g, encodeURIComponent(keyword || ""))
-      .replace(/searchPage/g, String(page || 1));
-    let headers = {};
-    let hm = u.match(/@Header:(\{[\s\S]*\})$/i);
-    if (hm) {
-      u = u.slice(0, hm.index);
-      // Legado header objects are often not strict JSON. Parse common key:value pairs conservatively.
-      let body = hm[1].slice(1, -1);
-      body.split(",").forEach(p => {
-        let x = p.split(":");
-        if (x.length >= 2) {
-          let k = x.shift().trim().replace(/^['"]|['"]$/g, "");
-          let v = x.join(":").trim().replace(/^['"]|['"]$/g, "");
-          if (k && v && !v.includes("{{")) headers[k] = v;
-        }
-      });
-    }
-    return {url: u.trim(), headers};
+  _alts(rule) {
+    return this._strip(rule).split("||").map(x => x.trim()).filter(Boolean);
   }
 
-  async _get(url, headers) {
-    let h = Object.assign({}, this.defaultHeaders, headers || {});
-    let res = await Network.get(url, h);
-    if (!res || !res.status || res.status >= 400) {
-      throw "HTTP " + (res ? res.status : "error") + ": " + url;
-    }
-    return res;
-  }
-
-  _looksJson(s) {
+  _selector(s) {
     s = this._trim(s);
-    return s.startsWith("{") || s.startsWith("[");
+    s = s.replace(/^class\.([^\s@|]+)/, (_, x) => "." + x.replace(/\s+/g, "."));
+    s = s.replace(/^id\.([^\s@|]+)/, "#$1");
+    s = s.replace(/^tag\.([^\s@|]+)/, "$1");
+    return s;
+  }
+
+  _parseSelectorRule(rule) {
+    // Legado common forms:
+    // class.foo@li -> .foo li
+    // class.foo@li@a@href -> selector .foo li a, attribute href
+    // class.foo@text -> .foo + text
+    let raw = this._strip(rule);
+    let p = raw.split("@").map(x => x.trim()).filter(Boolean);
+    const attrs = ["text","href","src","content","title","data-src","data-original",
+                   "alt","value","data-lazy-src","data-url"];
+    let attr = "text";
+    if (p.length > 1 && attrs.includes(p[p.length-1].toLowerCase())) {
+      attr = p.pop().toLowerCase();
+    }
+    let selector = this._selector(p.shift() || "");
+    for (const part of p) {
+      let x = part;
+      if (x.startsWith("tag.")) x = x.slice(4);
+      else if (x.startsWith("class.")) x = "." + x.slice(6).replace(/\s+/g, ".");
+      else if (x.startsWith("id.")) x = "#" + x.slice(3);
+      selector += " " + x;
+    }
+    return {selector, attr};
+  }
+
+  _readNode(node, attr) {
+    if (!node) return "";
+    if (attr === "text") return this._trim(node.text);
+    let a = node.attributes || {};
+    return this._trim(a[attr] !== undefined ? a[attr] : "");
+  }
+
+  _htmlAll(ctx, rule) {
+    const {selector, attr} = this._parseSelectorRule(rule);
+    let nodes = [];
+    try {
+      if (!selector) nodes = [ctx];
+      else nodes = ctx.querySelectorAll(selector) || [];
+    } catch (_) { return []; }
+    return Array.from(nodes).map(n => this._readNode(n, attr)).filter(Boolean);
+  }
+
+  _htmlOne(ctx, rule, base) {
+    const vals = this._htmlAll(ctx, rule);
+    if (!vals.length) return "";
+    let v = vals[0];
+    if (/^(href|src|data-src|data-original|data-lazy-src|data-url|url)$/i.test(this._parseSelectorRule(rule).attr))
+      v = this._abs(v, base);
+    return v;
   }
 
   _jsonPath(root, path) {
-    path = this._stripDirectives(path);
-    path = path.replace(/^-/, "");
-    path = path.replace(/^\$\.?/, "");
+    path = this._strip(path).replace(/^\$\.?/, "");
     if (!path) return [root];
-    let parts = path.replace(/\[(\d+)\]/g, ".$1")
-                    .replace(/\[\*\]/g, ".*")
-                    .split(".").filter(Boolean);
+    let parts = path.replace(/\[(\d+)\]/g, ".$1").replace(/\[\*\]/g, ".*")
+      .split(".").filter(Boolean);
     let cur = [root];
-    for (let p of parts) {
-      let next = [];
-      for (let v of cur) {
-        if (v === null || v === undefined) continue;
+    for (const p of parts) {
+      const next = [];
+      for (const v of cur) {
+        if (v == null) continue;
         if (p === "*") {
           if (Array.isArray(v)) next.push(...v);
           else if (typeof v === "object") next.push(...Object.values(v));
         } else if (Array.isArray(v) && /^\d+$/.test(p)) {
           if (v[Number(p)] !== undefined) next.push(v[Number(p)]);
-        } else if (typeof v === "object" && Object.prototype.hasOwnProperty.call(v, p)) {
+        } else if (typeof v === "object" && Object.prototype.hasOwnProperty.call(v,p)) {
           next.push(v[p]);
         }
       }
@@ -110,250 +148,165 @@ class ConvertedSource_source_20_d2b98b extends ComicSource {
     return cur;
   }
 
-  _legacySelectorToCss(sel) {
-    sel = this._trim(sel);
-    if (!sel) return "";
-    // Legado old forms: class.foo, id.foo, tag.xxx
-    sel = sel.replace(/^class\.([^\s@|]+)/, (_, x) => "." + x.replace(/\s+/g, "."));
-    sel = sel.replace(/^id\.([^\s@|]+)/, "#$1");
-    sel = sel.replace(/^tag\.([^\s@|]+)/, "$1");
-    // id.js_x@li -> #js_x li
-    sel = sel.replace(/^id\.([^@]+)@(.+)$/, "#$1 $2");
-    // class.foo@tag.img -> .foo img
-    sel = sel.replace(/^class\.([^@]+)@tag\.([^@]+)$/, (_, a, b) => "." + a.replace(/\s+/g, ".") + " " + b);
-    return sel;
+  _isJsonRule(rule, body) {
+    return /^\$/.test(this._strip(rule)) ||
+      (typeof body === "string" && /^[\s]*[\[{]/.test(body));
   }
 
-  _splitRule(rule) {
-    rule = this._stripDirectives(rule);
-    // Alternatives are common in Legado. Use first successful branch.
-    return rule.split("||").map(x => x.trim()).filter(Boolean);
-  }
-
-  _htmlExtractOne(ctx, rule, wantAll=false) {
-    let alternatives = this._splitRule(rule);
-    for (let alt of alternatives) {
-      // Ignore replacement/regex suffixes after # when they are not CSS ids.
-      let pieces = alt.split("@");
-      let selector = pieces.shift().trim();
-      let attr = null;
-
-      // If the rule is only an attribute, operate on current node.
-      if (selector === "text" || selector === "href" || selector === "src" ||
-          selector === "content" || selector === "title" || selector === "data-src" ||
-          selector === "data-original") {
-        attr = selector; selector = "";
-      } else if (pieces.length) {
-        attr = pieces.pop().trim();
-        // Join intermediate CSS-ish pieces.
-        if (pieces.length) selector += " " + pieces.map(x => {
-          if (x.startsWith("tag.")) return x.slice(4);
-          if (x.startsWith("class.")) return "." + x.slice(6).replace(/\s+/g, ".");
-          if (x.startsWith("id.")) return "#" + x.slice(3);
-          return x;
-        }).join(" ");
-      }
-
-      selector = this._legacySelectorToCss(selector);
-      try {
-        let nodes;
-        if (!selector) nodes = [ctx];
-        else if (wantAll) nodes = ctx.querySelectorAll(selector);
-        else {
-          let n = ctx.querySelector(selector);
-          nodes = n ? [n] : [];
-        }
-        if (!nodes || nodes.length === 0) continue;
-
-        let vals = [];
-        for (let n of nodes) {
-          let v = "";
-          if (!attr || attr === "text") v = n.text;
-          else {
-            let a = n.attributes || {};
-            v = a[attr] !== undefined ? a[attr] : "";
-          }
-          v = this._trim(v);
-          if (v) vals.push(v);
-        }
-        if (vals.length) return wantAll ? vals : vals[0];
-      } catch (_) {}
-    }
-    return wantAll ? [] : "";
-  }
-
-  _extractList(body, rule) {
-    rule = this._trim(rule);
+  _list(body, rule) {
     if (!rule) return [];
-    if (this._looksJson(body) || rule.startsWith("$") || rule.startsWith("-$") || /^[A-Za-z0-9_]+\.[A-Za-z0-9_.*\[\]-]+$/.test(rule)) {
+    if (this._isJsonRule(rule, body)) {
       try {
-        let j = typeof body === "string" ? JSON.parse(body) : body;
-        for (let alt of this._splitRule(rule)) {
-          let vals = this._jsonPath(j, alt);
-          if (vals.length) return vals;
+        const root = typeof body === "string" ? JSON.parse(body) : body;
+        for (const a of this._alts(rule)) {
+          const v = this._jsonPath(root, a);
+          if (v.length) return v;
         }
       } catch (_) {}
     }
     try {
-      let doc = body instanceof HtmlDocument ? body : new HtmlDocument(String(body));
-      for (let alt of this._splitRule(rule)) {
-        // Legacy "|" means multiple candidate selectors.
-        for (let candidate of alt.split("|").map(x => x.trim()).filter(Boolean)) {
-          let css = this._legacySelectorToCss(candidate);
-          try {
-            let list = doc.querySelectorAll(css);
-            if (list && list.length) return list;
-          } catch (_) {}
+      const doc = body instanceof HtmlDocument ? body : new HtmlDocument(String(body));
+      for (const a of this._alts(rule)) {
+        const candidates = a.split("|").map(x => x.trim()).filter(Boolean);
+        for (const c of candidates) {
+          const {selector} = this._parseSelectorRule(c);
+          const nodes = selector ? doc.querySelectorAll(selector) : [];
+          if (nodes && nodes.length) return Array.from(nodes);
         }
       }
     } catch (_) {}
     return [];
   }
 
-  _extractValue(ctx, rule, baseUrl) {
-    rule = this._trim(rule);
+  _value(ctx, rule, base) {
     if (!rule) return "";
-    if (typeof ctx === "object" && ctx !== null && !(ctx instanceof HtmlDocument) &&
-        ctx.localName === undefined && (rule.startsWith("$") || /^[A-Za-z0-9_$.]+(\[\*\])?/.test(rule))) {
-      for (let alt of this._splitRule(rule)) {
-        let vals = this._jsonPath(ctx, alt);
-        if (vals.length) {
-          let v = vals[0];
-          if (typeof v === "object") return JSON.stringify(v);
-          return this._trim(v);
+    if (ctx && typeof ctx === "object" && ctx.localName === undefined &&
+        !(ctx instanceof HtmlDocument) && /^\$/.test(this._strip(rule))) {
+      try {
+        for (const a of this._alts(rule)) {
+          const v = this._jsonPath(ctx, a);
+          if (v.length) return this._trim(typeof v[0] === "object" ? JSON.stringify(v[0]) : v[0]);
         }
-      }
+      } catch (_) {}
     }
-    let v = this._htmlExtractOne(ctx, rule, false);
-    if ((/href|src|url/i.test(rule)) && v) v = this._abs(v, baseUrl);
-    return v;
+    return this._htmlOne(ctx, rule, base);
   }
 
-  _extractValues(ctx, rule, baseUrl) {
-    rule = this._trim(rule);
+  _values(ctx, rule, base) {
     if (!rule) return [];
-    if (typeof ctx === "object" && ctx !== null && ctx.localName === undefined &&
-        !(ctx instanceof HtmlDocument)) {
-      for (let alt of this._splitRule(rule)) {
-        let vals = this._jsonPath(ctx, alt);
-        if (vals.length) return vals.map(v => this._trim(v)).filter(Boolean);
-      }
+    if (ctx && typeof ctx === "object" && ctx.localName === undefined &&
+        !(ctx instanceof HtmlDocument) && /^\$/.test(this._strip(rule))) {
+      try {
+        for (const a of this._alts(rule)) {
+          const v = this._jsonPath(ctx, a).map(x => this._trim(x)).filter(Boolean);
+          if (v.length) return v;
+        }
+      } catch (_) {}
     }
-    let vals = this._htmlExtractOne(ctx, rule, true);
-    if (/href|src|url/i.test(rule)) vals = vals.map(v => this._abs(v, baseUrl));
+    const vals = this._htmlAll(ctx, rule);
+    const attr = this._parseSelectorRule(rule).attr;
+    if (/^(href|src|data-src|data-original|data-lazy-src|data-url)$/i.test(attr))
+      return vals.map(v => this._abs(v, base));
     return vals;
   }
 
-  _comicFromNode(node, baseUrl) {
-    let id = this._extractValue(node, this.legadoRules.ruleSearchNoteUrl, baseUrl);
-    let title = this._extractValue(node, this.legadoRules.ruleSearchName, baseUrl);
-    let cover = this._extractValue(node, this.legadoRules.ruleSearchCoverUrl, baseUrl);
-    let author = this._extractValue(node, this.legadoRules.ruleSearchAuthor, baseUrl);
-    let latest = this._extractValue(node, this.legadoRules.ruleSearchLastChapter, baseUrl);
-    let kind = this._extractValue(node, this.legadoRules.ruleSearchKind, baseUrl);
-    if (!id) id = title;
+  _comic(node, base) {
+    const id = this._value(node, this.legadoRules.ruleSearchNoteUrl, base);
+    const title = this._value(node, this.legadoRules.ruleSearchName, base) || id;
+    const cover = this._value(node, this.legadoRules.ruleSearchCoverUrl, base);
+    const author = this._value(node, this.legadoRules.ruleSearchAuthor, base);
+    const kind = this._value(node, this.legadoRules.ruleSearchKind, base);
+    const latest = this._value(node, this.legadoRules.ruleSearchLastChapter, base);
     return {
-      id: id,
-      title: title || id || "(未命名)",
+      id: id || title,
+      title: title || "(未命名)",
       subTitle: author || latest || "",
       cover: cover || "",
-      tags: kind ? [kind] : [],
+      tags: kind ? String(kind).split(/[,/、\s]+/).filter(Boolean) : [],
       description: latest || ""
     };
   }
 
+  async _get(url, headers) {
+    const res = await Network.get(url, Object.assign({}, this.headers, headers || {}));
+    if (!res || res.status < 200 || res.status >= 400) {
+      throw new Error("HTTP " + (res ? res.status : "error"));
+    }
+    return res;
+  }
+
   search = {
     load: async (keyword, options, page) => {
-      let spec = this._requestSpec(this.legadoRules.ruleSearchUrl, keyword, page);
-      if (!spec.url) return {comics: [], maxPage: 1};
-      let res = await this._get(spec.url, spec.headers);
-      let list = this._extractList(res.body, this.legadoRules.ruleSearchList);
-      let comics = list.map(x => this._comicFromNode(x, spec.url)).filter(x => x.title);
-      return {comics, maxPage: comics.length ? null : page};
+      const u = this._strip(this.legadoRules.ruleSearchUrl)
+        .replace(/searchKey/g, encodeURIComponent(keyword || ""))
+        .replace(/searchPage/g, String(page || 1));
+      if (!u) return {comics: [], maxPage: 1};
+      const res = await this._get(u);
+      const nodes = this._list(res.body, this.legadoRules.ruleSearchList);
+      return {
+        comics: nodes.map(n => this._comic(n, u)).filter(x => x.title),
+        maxPage: 9999
+      };
     },
     optionList: []
   };
 
   comic = {
     loadInfo: async (id) => {
-      let url = this._abs(id, this.baseUrl);
-      let res = await this._get(url, {});
-      let body = res.body;
+      const url = this._abs(id, this.baseUrl);
+      const res = await this._get(url);
       let root;
-      try { root = this._looksJson(body) ? JSON.parse(body) : new HtmlDocument(body); }
-      catch (_) { root = new HtmlDocument(body); }
+      try {
+        root = this._isJsonRule(this.legadoRules.ruleBookName, res.body)
+          ? JSON.parse(res.body) : new HtmlDocument(res.body);
+      } catch (_) { root = new HtmlDocument(res.body); }
 
-      let title = this._extractValue(root, this.legadoRules.ruleBookName, url);
-      let author = this._extractValue(root, this.legadoRules.ruleBookAuthor, url);
-      let desc = this._extractValue(root, this.legadoRules.ruleIntroduce, url);
-      let cover = this._extractValue(root, this.legadoRules.ruleCoverUrl, url);
-      let kind = this._extractValue(root, this.legadoRules.ruleBookKind, url);
-      let latest = this._extractValue(root, this.legadoRules.ruleBookLastChapter, url);
-
-      if (!title) title = id;
-      let chapterNodes = this._extractList(body, this.legadoRules.ruleChapterList);
-      let chapters = new Map();
-      let n = 0;
-      for (let c of chapterNodes) {
-        let name = this._extractValue(c, this.legadoRules.ruleChapterName, url) || ("第 " + (n + 1) + " 话");
-        let ep = this._extractValue(c, this.legadoRules.ruleContentUrl || this.legadoRules.ruleChapterUrl, url);
-        if (!ep) ep = this._extractValue(c, this.legadoRules.ruleChapterUrl, url);
-        if (!ep && c && c.attributes) ep = this._abs(c.attributes["href"] || "", url);
-        if (!ep) ep = url + "#auto_chapter_" + n;
-        chapters.set(ep, name);
-        n++;
-      }
-
-      let tags = {};
-      if (author) tags["作者"] = [author];
-      if (kind) tags["分类"] = kind.split(/[,/、\s]+/).filter(Boolean);
-
+      const title = this._value(root, this.legadoRules.ruleBookName, url) || id;
+      const author = this._value(root, this.legadoRules.ruleBookAuthor, url);
+      const desc = this._value(root, this.legadoRules.ruleIntroduce, url);
+      const cover = this._value(root, this.legadoRules.ruleCoverUrl, url);
+      const kind = this._value(root, this.legadoRules.ruleBookKind, url);
+      const nodes = this._list(res.body, this.legadoRules.ruleChapterList);
+      const chapters = new Map();
+      nodes.forEach((n, i) => {
+        const name = this._value(n, this.legadoRules.ruleChapterName, url) || ("第" + (i+1) + "话");
+        let ep = this._value(n, this.legadoRules.ruleChapterUrl, url);
+        if (!ep) ep = this._value(n, this.legadoRules.ruleContentUrl, url);
+        if (!ep && n && n.attributes) ep = n.attributes.href || "";
+        ep = this._abs(ep, url);
+        if (ep) chapters.set(ep, name);
+      });
       return new ComicDetails({
-        title: title,
-        cover: cover || "",
+        title,
+        cover,
         description: desc || "",
-        tags: tags,
-        chapters: chapters,
-        updateTime: latest || "",
-        url: url
+        tags: kind ? {"分类": String(kind).split(/[,/、\s]+/).filter(Boolean)} : {},
+        chapters,
+        url
       });
     },
 
     loadEp: async (comicId, epId) => {
-      let url = this._abs(epId || comicId, comicId || this.baseUrl);
-      let res = await this._get(url, {});
-      let body = res.body;
+      const url = this._abs(epId || comicId, comicId || this.baseUrl);
+      const res = await this._get(url);
       let root;
-      try { root = this._looksJson(body) ? JSON.parse(body) : new HtmlDocument(body); }
-      catch (_) { root = new HtmlDocument(body); }
-
-      // In many Legado comic sources ruleContentUrl is the image rule; in some it is a
-      // chapter URL transformation. We first try extracting a list from the fetched page.
-      let images = this._extractValues(root, this.legadoRules.ruleBookContent, url);
-      if (!images.length) images = this._extractValues(root, this.legadoRules.ruleContentUrl, url);
-
-      // Fallback for common image tags when a source has an unsupported scripted rule.
+      try { root = new HtmlDocument(res.body); } catch (_) { root = res.body; }
+      let images = this._values(root, this.legadoRules.ruleBookContent, url);
+      if (!images.length) images = this._values(root, this.legadoRules.ruleContentUrl, url);
       if (!images.length && root instanceof HtmlDocument) {
-        let nodes = [];
-        try { nodes = root.querySelectorAll("img"); } catch (_) {}
-        for (let n of nodes) {
-          let a = n.attributes || {};
-          let v = a["data-original"] || a["data-src"] || a["src"] || "";
-          v = this._abs(v, url);
-          if (v && /^https?:\/\//i.test(v)) images.push(v);
-        }
+        try {
+          for (const n of root.querySelectorAll("img") || []) {
+            const a = n.attributes || {};
+            const v = a["data-original"] || a["data-src"] || a["data-lazy-src"] || a.src || "";
+            if (v) images.push(this._abs(v, url));
+          }
+        } catch (_) {}
       }
-      images = [...new Set(images.filter(x => /^https?:\/\//i.test(x)))];
-      return {images};
+      return {images: [...new Set(images.filter(x => /^https?:\/\//i.test(x)))]};
     },
 
-    onImageLoad: (url, comicId, epId) => {
-      return {headers: this.defaultHeaders};
-    },
-
-    onThumbnailLoad: (url) => {
-      return {headers: this.defaultHeaders};
-    }
+    onImageLoad: () => ({headers: this.headers || {}}),
+    onThumbnailLoad: () => ({headers: this.headers || {}})
   };
 
 }
