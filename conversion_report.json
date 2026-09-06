@@ -1,0 +1,797 @@
+[
+  {
+    "name": "漫画家📱⛅",
+    "key": "source_01_656cfe",
+    "fileName": "source_01_656cfe.js",
+    "sourceUrl": "http://mhjia.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "包子漫画",
+    "key": "source_02_e3ec7f",
+    "fileName": "source_02_e3ec7f.js",
+    "sourceUrl": "https://baozimh.org",
+    "complexRuleFields": [
+      "ruleBookName",
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "污漫天堂🔞",
+    "key": "source_03_c97d34",
+    "fileName": "source_03_c97d34.js",
+    "sourceUrl": "https://wmtt5.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "◯ YYDS",
+    "key": "yyds_04_86b037",
+    "fileName": "yyds_04_86b037.js",
+    "sourceUrl": "http://www.yydsmh.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleSearchCoverUrl",
+      "ruleChapterName",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "◯ 拷贝漫画",
+    "key": "source_05_1be182",
+    "fileName": "source_05_1be182.js",
+    "sourceUrl": "https://api.mangacopy.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchNoteUrl",
+      "ruleChapterList",
+      "ruleChapterUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "再漫画",
+    "key": "source_06_b7b48e",
+    "fileName": "source_06_b7b48e.js",
+    "sourceUrl": "https://v4api.zaimanhua.com",
+    "complexRuleFields": [
+      "ruleSearchNoteUrl",
+      "ruleBookKind",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "☄️ 最次元",
+    "key": "source_07_49effa",
+    "fileName": "source_07_49effa.js",
+    "sourceUrl": "http://www.zcymh.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "野蛮漫画",
+    "key": "source_08_fa018e",
+    "fileName": "source_08_fa018e.js",
+    "sourceUrl": "http://mhbao.colacomic.com",
+    "complexRuleFields": [
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "顶漫画",
+    "key": "source_09_fe41f7",
+    "fileName": "source_09_fe41f7.js",
+    "sourceUrl": "https://www.dingmanhua.com",
+    "complexRuleFields": [
+      "ruleChapterName",
+      "ruleChapterUrl",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "鳥鳥韓漫nnhanman5",
+    "key": "nnhanman5_10_f0cebd",
+    "fileName": "nnhanman5_10_f0cebd.js",
+    "sourceUrl": "https://nnhanman5.com",
+    "complexRuleFields": [
+      "ruleIntroduce",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "18漫畫(国内可)",
+    "key": "18_11_31f9fe",
+    "fileName": "18_11_31f9fe.js",
+    "sourceUrl": "https://m.18mhx.com",
+    "complexRuleFields": [
+      "ruleBookName",
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "18真人图集",
+    "key": "18_12_5158bf",
+    "fileName": "18_12_5158bf.js",
+    "sourceUrl": "https://18gallery.com",
+    "complexRuleFields": [
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "MissKon图集",
+    "key": "misskon_13_4b2d17",
+    "fileName": "misskon_13_4b2d17.js",
+    "sourceUrl": "https://misskon.com",
+    "complexRuleFields": [
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "Everia图集",
+    "key": "everia_14_efa23b",
+    "fileName": "everia_14_efa23b.js",
+    "sourceUrl": "https://everia.club",
+    "complexRuleFields": [
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "Buondua图集",
+    "key": "buondua_15_095853",
+    "fileName": "buondua_15_095853.js",
+    "sourceUrl": "https://buondua.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchNoteUrl",
+      "ruleBookName",
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "绅士会所",
+    "key": "source_16_d622ad",
+    "fileName": "source_16_d622ad.js",
+    "sourceUrl": "https://www.hentaiclub.net",
+    "complexRuleFields": [
+      "ruleBookName",
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "魅影画廊",
+    "key": "source_17_b7ddde",
+    "fileName": "source_17_b7ddde.js",
+    "sourceUrl": "https://tk.myhl03.sbs",
+    "complexRuleFields": [
+      "ruleChapterList",
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "紳士漫畫·国内直连",
+    "key": "source_18_986ee7",
+    "fileName": "source_18_986ee7.js",
+    "sourceUrl": "https://www.wn09.cfd",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleSearchCoverUrl",
+      "ruleCoverUrl",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "中国人能飞",
+    "key": "source_19_50ee2a",
+    "fileName": "source_19_50ee2a.js",
+    "sourceUrl": "https://www.mh250.com",
+    "complexRuleFields": [
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "紳士漫畫🔞🌐",
+    "key": "source_20_d2b98b",
+    "fileName": "source_20_d2b98b.js",
+    "sourceUrl": "https://www.wnacg.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleSearchCoverUrl",
+      "ruleCoverUrl",
+      "ruleChapterName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "鸟鸟韩漫·直连",
+    "key": "source_21_a16969",
+    "fileName": "source_21_a16969.js",
+    "sourceUrl": "https://nnhm95.com",
+    "complexRuleFields": [
+      "ruleBookAuthor",
+      "ruleIntroduce",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "武芊漫画·直连",
+    "key": "source_22_2764a4",
+    "fileName": "source_22_2764a4.js",
+    "sourceUrl": "https://comic.mkzcdn.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleSearchNoteUrl",
+      "ruleChapterUrl",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "8色摄影",
+    "key": "8_23_b711ea",
+    "fileName": "8_23_b711ea.js",
+    "sourceUrl": "https://8se.me",
+    "complexRuleFields": [
+      "ruleSearchNoteUrl",
+      "ruleSearchCoverUrl",
+      "ruleCoverUrl",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "4KHD 美图",
+    "key": "4khd_24_21d7d1",
+    "fileName": "4khd_24_21d7d1.js",
+    "sourceUrl": "https://www.4khd.com",
+    "complexRuleFields": [
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "CosplayTele",
+    "key": "cosplaytele_25_190983",
+    "fileName": "cosplaytele_25_190983.js",
+    "sourceUrl": "https://cosplaytele.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleBookKind",
+      "ruleChapterName",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "腾讯漫画",
+    "key": "source_26_c5541c",
+    "fileName": "source_26_c5541c.js",
+    "sourceUrl": "https://m.ac.qq.com",
+    "complexRuleFields": [
+      "ruleChapterName"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "SF漫画",
+    "key": "sf_27_eb0a9b",
+    "fileName": "sf_27_eb0a9b.js",
+    "sourceUrl": "https://mm.sfacg.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "naver",
+    "key": "naver_28_e2315f",
+    "fileName": "naver_28_e2315f.js",
+    "sourceUrl": "https://m.comic.naver.com/index.nhn",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "x漫画-M",
+    "key": "x_m_29_6ee1ce",
+    "fileName": "x_m_29_6ee1ce.js",
+    "sourceUrl": "https://www.xmanhua.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "x漫画",
+    "key": "x_30_465fc5",
+    "fileName": "x_30_465fc5.js",
+    "sourceUrl": "https://xmanhua.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "崩坏3漫画",
+    "key": "3_31_7d315c",
+    "fileName": "3_31_7d315c.js",
+    "sourceUrl": "https://comic.bh3.com",
+    "complexRuleFields": [
+      "ruleSearchNoteUrl",
+      "ruleBookAuthor"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫画联合国",
+    "key": "source_32_e5ebaf",
+    "fileName": "source_32_e5ebaf.js",
+    "sourceUrl": "https://www.comicun.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "漫畫櫃",
+    "key": "source_33_05aedf",
+    "fileName": "source_33_05aedf.js",
+    "sourceUrl": "https://tw.manhuagui.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "特漫网",
+    "key": "source_34_0dc3b2",
+    "fileName": "source_34_0dc3b2.js",
+    "sourceUrl": "https://www.44te.com",
+    "complexRuleFields": [
+      "ruleSearchCoverUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫画人",
+    "key": "source_35_667a4f",
+    "fileName": "source_35_667a4f.js",
+    "sourceUrl": "http://www.manhuaren.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchNoteUrl",
+      "ruleSearchKind",
+      "ruleBookName",
+      "ruleBookLastChapter",
+      "ruleChapterName"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "咚漫",
+    "key": "source_36_d33fb7",
+    "fileName": "source_36_d33fb7.js",
+    "sourceUrl": "https://www.dongmanmanhua.cn",
+    "complexRuleFields": [
+      "ruleSearchList",
+      "ruleCoverUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫漫漫画-M",
+    "key": "m_37_824ad0",
+    "fileName": "m_37_824ad0.js",
+    "sourceUrl": "https://m.manmanapp.com",
+    "complexRuleFields": [
+      "ruleSearchList",
+      "ruleBookLastChapter"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "动漫戏说",
+    "key": "source_38_17bca1",
+    "fileName": "source_38_17bca1.js",
+    "sourceUrl": "https://comic.acgn.cc",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "极速漫画",
+    "key": "source_39_7cc572",
+    "fileName": "source_39_7cc572.js",
+    "sourceUrl": "http://www.1kkk.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "动漫啦",
+    "key": "source_40_5846eb",
+    "fileName": "source_40_5846eb.js",
+    "sourceUrl": "http://www.dongman.la",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "动漫屋",
+    "key": "source_41_b0c446",
+    "fileName": "source_41_b0c446.js",
+    "sourceUrl": "https://m.dm5.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchNoteUrl",
+      "ruleSearchKind",
+      "ruleBookName",
+      "ruleBookLastChapter",
+      "ruleChapterName"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫漫漫画",
+    "key": "source_42_481e60",
+    "fileName": "source_42_481e60.js",
+    "sourceUrl": "https://www.manmanapp.com",
+    "complexRuleFields": [
+      "ruleBookLastChapter"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "新漫画-A",
+    "key": "a_43_e3f585",
+    "fileName": "a_43_e3f585.js",
+    "sourceUrl": "https://xapi.xinmanhua.net",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "看漫畫",
+    "key": "source_44_fed97a",
+    "fileName": "source_44_fed97a.js",
+    "sourceUrl": "https://www.k886.net",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "漫畫狗",
+    "key": "source_45_d76464",
+    "fileName": "source_45_d76464.js",
+    "sourceUrl": "https://dogemanga.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchList",
+      "ruleSearchKind",
+      "ruleBookKind"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫本",
+    "key": "source_46_ac3286",
+    "fileName": "source_46_ac3286.js",
+    "sourceUrl": "http://www.manben.com",
+    "complexRuleFields": [
+      "ruleSearchList",
+      "ruleSearchNoteUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "咚漫-M",
+    "key": "m_47_c0f177",
+    "fileName": "m_47_c0f177.js",
+    "sourceUrl": "https://m.dongmanmanhua.cn",
+    "complexRuleFields": [
+      "ruleSearchList"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫画皮",
+    "key": "source_48_074d4f",
+    "fileName": "source_48_074d4f.js",
+    "sourceUrl": "https://www.manhuapi.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "一本漫画-A",
+    "key": "a_49_189b7b",
+    "fileName": "a_49_189b7b.js",
+    "sourceUrl": "https://www.yibenmanhua.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "漫画台-M",
+    "key": "m_50_2be8b8",
+    "fileName": "m_50_2be8b8.js",
+    "sourceUrl": "https://m.manhuatai.com",
+    "complexRuleFields": [
+      "ruleSearchKind"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "知音漫客-M",
+    "key": "m_51_4e1530",
+    "fileName": "m_51_4e1530.js",
+    "sourceUrl": "https://m.zymk.cn",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "看漫画-M",
+    "key": "m_52_1d77ca",
+    "fileName": "m_52_1d77ca.js",
+    "sourceUrl": "https://m.kanman.com",
+    "complexRuleFields": [
+      "ruleSearchKind",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫画160",
+    "key": "160_53_6c28df",
+    "fileName": "160_53_6c28df.js",
+    "sourceUrl": "https://m.mh160.cc",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "A漫🔞",
+    "key": "a_54_aaf8eb",
+    "fileName": "a_54_aaf8eb.js",
+    "sourceUrl": "https://aman8.org",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "聚合漫画屋",
+    "key": "source_55_082633",
+    "fileName": "source_55_082633.js",
+    "sourceUrl": "https://www.52hah.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "漫蛙🌐🔞",
+    "key": "source_56_3ebb0b",
+    "fileName": "source_56_3ebb0b.js",
+    "sourceUrl": "https://manwa.me",
+    "complexRuleFields": [
+      "ruleSearchAuthor",
+      "ruleSearchNoteUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "包子漫画cw",
+    "key": "cw_57_cc4798",
+    "fileName": "cw_57_cc4798.js",
+    "sourceUrl": "https://cn.webmota.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "仙漫网",
+    "key": "source_58_9bd332",
+    "fileName": "source_58_9bd332.js",
+    "sourceUrl": "https://www.gaonaojin.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "GMANHUA",
+    "key": "gmanhua_59_ee9658",
+    "fileName": "gmanhua_59_ee9658.js",
+    "sourceUrl": "http://www.gmanhua.com",
+    "complexRuleFields": [
+      "ruleBookName",
+      "ruleBookAuthor",
+      "ruleBookKind",
+      "ruleBookLastChapter"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "92漫画",
+    "key": "92_60_af6181",
+    "fileName": "92_60_af6181.js",
+    "sourceUrl": "http://www.92mh.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "拷贝漫画",
+    "key": "source_61_acb91b",
+    "fileName": "source_61_acb91b.js",
+    "sourceUrl": "https://www.mangacopy.com",
+    "complexRuleFields": [
+      "ruleSearchUrl",
+      "ruleSearchNoteUrl",
+      "ruleSearchLastChapter",
+      "ruleBookKind",
+      "ruleContentUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫客栈-A",
+    "key": "a_62_528fe9",
+    "fileName": "a_62_528fe9.js",
+    "sourceUrl": "http://comic.mkzhan.com",
+    "complexRuleFields": [
+      "ruleSearchCoverUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "神漫画-M",
+    "key": "m_63_d6913d",
+    "fileName": "m_63_d6913d.js",
+    "sourceUrl": "https://m.taomanhua.com",
+    "complexRuleFields": [
+      "ruleSearchKind"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "無限動漫",
+    "key": "source_64_2e309a",
+    "fileName": "source_64_2e309a.js",
+    "sourceUrl": "https://www.8comic.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "龙王传说网",
+    "key": "source_65_8717b6",
+    "fileName": "source_65_8717b6.js",
+    "sourceUrl": "https://lw.131453.xyz",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "MangaRead",
+    "key": "mangaread_66_d1113a",
+    "fileName": "mangaread_66_d1113a.js",
+    "sourceUrl": "https://www.mangaread.org",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "G站漫画",
+    "key": "g_67_c20b96",
+    "fileName": "g_67_c20b96.js",
+    "sourceUrl": "https://www.godamanga.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "Webtoon_us",
+    "key": "webtoon_us_68_3131e7",
+    "fileName": "webtoon_us_68_3131e7.js",
+    "sourceUrl": "https://us.webtoons.com",
+    "complexRuleFields": [
+      "ruleSearchList"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "Komiic漫画",
+    "key": "komiic_69_259947",
+    "fileName": "komiic_69_259947.js",
+    "sourceUrl": "https://komiic.com",
+    "complexRuleFields": [
+      "ruleSearchNoteUrl",
+      "ruleSearchKind",
+      "ruleBookKind",
+      "ruleChapterName",
+      "ruleChapterUrl",
+      "ruleContentUrl",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "◯ 包子漫画web",
+    "key": "web_70_6c33fc",
+    "fileName": "web_70_6c33fc.js",
+    "sourceUrl": "https://cn.baozimhcn.com",
+    "complexRuleFields": [
+      "ruleChapterName"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "webtoon移动版",
+    "key": "webtoon_71_d28205",
+    "fileName": "webtoon_71_d28205.js",
+    "sourceUrl": "https://us-m.webtoons.com",
+    "complexRuleFields": [
+      "ruleSearchList",
+      "ruleSearchNoteUrl",
+      "ruleBookName",
+      "ruleCoverUrl"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "Mangabz",
+    "key": "mangabz_72_18ed08",
+    "fileName": "mangabz_72_18ed08.js",
+    "sourceUrl": "https://mangabz.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "◯ 18H",
+    "key": "18h_73_868382",
+    "fileName": "18h_73_868382.js",
+    "sourceUrl": "https://18h.mm-cg.com",
+    "complexRuleFields": [
+      "ruleChapterList",
+      "ruleBookContent"
+    ],
+    "status": "best-effort"
+  },
+  {
+    "name": "漫画柜",
+    "key": "source_74_9820b5",
+    "fileName": "source_74_9820b5.js",
+    "sourceUrl": "https://www.manhuagui.com",
+    "complexRuleFields": [],
+    "status": "auto-translated"
+  },
+  {
+    "name": "◯ 177漫画",
+    "key": "177_75_d9f4ef",
+    "fileName": "177_75_d9f4ef.js",
+    "sourceUrl": "https://www.177picyy.com",
+    "complexRuleFields": [
+      "ruleSearchName",
+      "ruleSearchCoverUrl",
+      "ruleIntroduce",
+      "ruleChapterList"
+    ],
+    "status": "best-effort"
+  }
+]
